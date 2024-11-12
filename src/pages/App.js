@@ -12,7 +12,6 @@ function App() {
   const [currentRepo, setCurrentRepo] = useState('');
   const [repos, setRepos] = useState([]);
 
-  // Função de busca do repositório
   const handleSearchRepo = async () => {
     const { data } = await api.get(`repos/${currentRepo}`);
 
@@ -27,12 +26,10 @@ function App() {
     }
     alert('Repositório não encontrado');
   }
-
-  // Função de remoção de repositório
+  
   const handleRemoveRepo = (id) => {
     console.log('Removendo repositório com id', id);
-
-    // Aqui usamos filter para remover o repositório com o id fornecido
+    
     setRepos(prevRepos => prevRepos.filter(repo => repo.id !== id));
   }
 
